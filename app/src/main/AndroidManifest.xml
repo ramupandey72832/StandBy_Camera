@@ -20,6 +20,9 @@
     <!-- To prevent the CPU from sleeping -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+    <!-- 2. Legacy Storage for Android 5-9 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
 
     <application
         android:allowBackup="true"
@@ -49,6 +52,7 @@
         <activity android:name=".SettingsActivity" android:exported="false" />
         <service
             android:name=".services.ForegroundRecordService"
+            android:enabled="true"
             android:exported="false"
             android:foregroundServiceType="camera|microphone" />
     </application>
