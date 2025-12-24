@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Video Quality"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"/>
+
+    <RadioGroup
+        android:id="@+id/rg_quality"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/rb_sd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SD (480p) - Low Storage" />
+
+        <RadioButton
+            android:id="@+id/rb_hd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="HD (720p) - Balanced" />
+
+        <RadioButton
+            android:id="@+id/rb_fhd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="FHD (1080p) - High Quality" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btn_save_settings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Save Configuration"
+        android:backgroundTint="#DC80DAF2"
+        android:textColor="@android:color/black"/>
+</LinearLayout>

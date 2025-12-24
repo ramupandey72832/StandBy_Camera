@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="led_on_color">#FF00FF00</color> <!-- Bright green -->
+    <color name="led_off_color">#FF708090</color> <!-- Slate gray -->
+</resources>

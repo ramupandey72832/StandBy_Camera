@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@drawable/activity_bg"
+    tools:context=".MainActivity">
+
+    <!-- NEW: RAM and Storage Info at the Top -->
+    <LinearLayout
+        android:id="@+id/info_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:background="#80000000"
+        android:padding="10dp"
+        android:layout_marginTop="10dp">
+
+        <!-- RAM Info -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@android:drawable/ic_menu_info_details"
+                app:tint="#DC80DAF2" />
+            <TextView
+                android:id="@+id/txt_ram_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="RAM: --/--"
+                android:textColor="@android:color/white"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- Storage Info -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@android:drawable/ic_menu_save"
+                app:tint="#DC80DAF2" />
+            <TextView
+                android:id="@+id/txt_storage_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Storage: --/--"
+                android:textColor="@android:color/white"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </LinearLayout>
+    <!-- Container to keep the Records button and LED in the center -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_records_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Records"
+            android:textSize="15sp"
+            android:drawableLeft="@drawable/ic_playback"
+            android:drawablePadding="8dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            />
+
+        <ImageView
+            android:id="@+id/led_status_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:contentDescription="LED Status Indicator"
+            android:src="@drawable/led_indicator_off"
+            android:elevation="10dp"
+            android:outlineAmbientShadowColor="#00FF00"
+            android:outlineSpotShadowColor="#00FF00"/>
+    </LinearLayout>
+    <!-- Horizontal container for the bottom buttons -->
+    <!-- Horizontal container for the bottom buttons -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/id_btn_record"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:text="Start Camera"
+            android:textSize="15sp"
+            android:drawableLeft="@drawable/ic_video_camera"
+            android:drawablePadding="8dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:backgroundTint="#DC80DAF2"/>
+
+        <ImageButton
+            android:id="@+id/btn_settings"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:src="@drawable/ic_setting_gear"
+            android:contentDescription="Settings"
+            android:scaleType="fitCenter"
+            android:padding="12dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:tint="#DC80DAF2"/>
+    </LinearLayout>
+
+</RelativeLayout>

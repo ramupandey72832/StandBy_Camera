@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">StandBy Camera</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="lorem_ipsum">
+        we are doing to open our video panel here \n\n okay
+    </string>
+</resources>
