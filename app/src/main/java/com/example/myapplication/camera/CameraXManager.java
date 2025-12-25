@@ -42,6 +42,7 @@ public class CameraXManager {
                         getSharedPreferences("AppConfig", Context.MODE_PRIVATE);
                 String savedQuality = prefs.getString("video_quality", "SD");
 
+                // --- 1. Handle Quality ---
                 Quality targetQuality;
                 if (savedQuality.equals("FHD")) targetQuality = Quality.FHD;
                 else if (savedQuality.equals("HD")) targetQuality = Quality.HD;
@@ -51,13 +52,23 @@ public class CameraXManager {
                 QualitySelector qualitySelector = QualitySelector.from(Quality.SD,
                         FallbackStrategy.higherQualityOrLowerThan(targetQuality));
 
+
+
                 ProcessCameraProvider cameraProvider = cameraProviderFuture.get();
                 Recorder recorder = new Recorder.Builder()
                         .setQualitySelector(qualitySelector)
                         .build();
                 videoCapture = VideoCapture.withOutput(recorder);
 
+                // --- 2. Handle Camera Selection (NEW) ---
+                String savedCamera = prefs.getString("camera_facing", "BACK");
                 CameraSelector cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA;
+                if (savedCamera.equals("FRONT")) {
+                    cameraSelector = CameraSelector.DEFAULT_FRONT_CAMERA;
+                } else {
+                    cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA;
+                }
+
                 cameraProvider.unbindAll();
                 cameraProvider.bindToLifecycle(service, cameraSelector, videoCapture);
 

@@ -23,6 +23,26 @@ public class SettingsActivity extends AppCompatActivity {
         else if (quality.equals("HD")) binding.rbHd.setChecked(true);
         else binding.rbSd.setChecked(true);
 
+
+// 1. Load saved state
+        String savedCamera = prefs.getString("camera_facing", "BACK");
+        if (savedCamera.equals("FRONT")) {
+            binding.rbFrontCamera.setChecked(true);
+        } else {
+            binding.rbBackCamera.setChecked(true);
+        }
+
+        // 2. Save on change
+        binding.rgCameraSelection.setOnCheckedChangeListener((group, checkedId) -> {
+            SharedPreferences.Editor editor = prefs.edit();
+            if (checkedId == R.id.rb_front_camera) {
+                editor.putString("camera_facing", "FRONT");
+            } else {
+                editor.putString("camera_facing", "BACK");
+            }
+            editor.apply();
+        });
+
         binding.btnSaveSettings.setOnClickListener(v -> {
             String selectedQuality = "SD";
             if (binding.rbFhd.isChecked()) selectedQuality = "FHD";
